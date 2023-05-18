@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <div>
-            <div className="relative grid grid-cols-10">
+            <div className="relative grid grid-cols-10">    
                 <div className="col-span-4 relative">
                     <img src="https://i.ibb.co/9Tq2QPc/login-banner.png" alt="" />
                     <img className="absolute top-10 right-44" src="https://i.ibb.co/bbhr2mV/logo.png" alt="" />
@@ -33,7 +33,7 @@ const Login = () => {
                             </div>
                             <input className='w-full bg-black text-white mt-2 py-3 border px-4 rounded-lg font-bold hover:bg-slate-800 btn-animation' type="submit" value="login" />
                         </form>
-                        <p className='text-gray-400 text-sm mt-4'>Don't have any account ? <Link className='text-black' to="/signup">Signup</Link></p>
+                        <p className='text-gray-400 text-sm mt-4'>Don't have any account ? <Link className='text-black' to="/register">Register</Link></p>
                     </div>
                 </div>
             </div>
