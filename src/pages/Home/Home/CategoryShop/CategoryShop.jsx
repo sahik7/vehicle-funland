@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import SubCategoryContainer from '../../../../components/SubCategoryContainer';
 
 const CategoryShop = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [subCategory, setSubCategory] = useState("");
+  const [vehicles, setVehicles] = useState([])
 
 
   useEffect(() => {
@@ -11,9 +13,9 @@ const CategoryShop = () => {
       try {
         const response = await fetch(`http://localhost:5000/vehicles?SubCategory=${subCategory}`);
         const data = await response.json();
-        console.log(data);
+        setVehicles(data);
       } catch (error) {
-        console.log('Error fetching data:', error);
+        console.log(error);
       }
     };
 
@@ -23,7 +25,6 @@ const CategoryShop = () => {
 
   const handleTabSelect = (index) => {
     setActiveTabIndex(index);
-    let subCategory;
     switch (index) {
       case 0:
         setSubCategory('Flying');
@@ -49,7 +50,8 @@ const CategoryShop = () => {
   };
   return (
     <div>
-      <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex">
+      <h1 className="text-4xl text-center py-8 ">Categories</h1>
+      <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex rounded p-4">
         <div className="">
           <TabList className="space-y-2">
             <Tab className={`border border-black p-1 ${activeTabIndex === 0 ? 'active-tab' : ''}`}>Flying Vehicles</Tab>
@@ -61,24 +63,24 @@ const CategoryShop = () => {
           </TabList>
         </div>
 
-        <div className="border flex-grow-1">
+        <div>
           <TabPanel>
-            <h2>Any content 1 {subCategory}</h2>
+            <SubCategoryContainer vehicles={vehicles}/>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2 {subCategory}</h2>
+          <SubCategoryContainer vehicles={vehicles}/>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 3 {subCategory}</h2>
+            <SubCategoryContainer vehicles={vehicles}/>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 4 {subCategory}</h2>
+            <SubCategoryContainer vehicles={vehicles}/>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 5 {subCategory}</h2>
+            <SubCategoryContainer vehicles={vehicles}/>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 6 {subCategory}</h2>
+            <SubCategoryContainer vehicles={vehicles}/>
           </TabPanel>
         </div>
       </Tabs>
