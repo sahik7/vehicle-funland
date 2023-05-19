@@ -14,12 +14,6 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         EmailPasswordLogin(email, password)
-            .then((userData) => {
-                // Signed in 
-                const user = userData.user;
-                console.log(user);
-                // ...
-            })
             .catch((error) => {
                 switch (error.code) {
                     case 'auth/user-not-found':
@@ -33,8 +27,8 @@ const Login = () => {
                         break;
                 }
             });
-            
-            console.log(customErrMessage)
+
+        console.log(customErrMessage)
 
     }
 
@@ -49,7 +43,7 @@ const Login = () => {
                 <div className="col-span-6 flex justify-end">
                     <img src="https://i.ibb.co/BtL0cqY/login-banner-design.png" alt="" />
                 </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg bg-white w-[29rem] h-[38rem] rounded-lg py-8">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-gray-300 shadow-lg bg-white w-[29rem] h-[38rem] rounded-lg py-8">
                     <div className="text-center">
                         <h3 className="text-2xl font-bold mt-5">Login</h3>
                         <h5 className="text-light-aqua font-light mt-2">Please enter your details to login</h5>
@@ -62,15 +56,16 @@ const Login = () => {
                         <form onSubmit={manageUserLogin} className='w-10/12 mx-auto space-y-6'>
                             <div>
                                 <label className="block font-bold text-left ml-4 text-sm" htmlFor="email">E-Mail Address</label>
-                                <input className='w-full border-gray-300 mt-2 py-3 border px-4 rounded-lg font-light text-sm' type="text" name="email" placeholder="email... " id="" required/>
+                                <input className='w-full border-gray-300 mt-2 py-3 border px-4 rounded-lg font-light text-sm' type="text" name="email" placeholder="email... " id="" required />
                             </div>
                             <div className=''>
                                 <label className='block text-left font-bold text-sm ml-4' htmlFor="password">Password</label>
-                                <input className='w-full border-gray-300 mt-2 py-3 border px-4 rounded-lg font-light text-sm' type="password" name="password" placeholder="password " id="" required/>
-                            <p className="mt-2 text-primary text-start text-sm">{customErrMessage}</p>
+                                <input className='w-full border-gray-300 mt-2 py-3 border px-4 rounded-lg font-light text-sm' type="password" name="password" placeholder="password " id="" required />
+                                {/* Error Message */}
+                                <p className="mt-2 text-primary text-start text-sm">{customErrMessage}</p>
                             </div>
                             <input className='w-full bg-black text-white mt-2 py-3 border px-4 rounded-lg font-bold hover:bg-slate-800 btn-animation' type="submit" value="login" />
-                            
+
                         </form>
                         <p className='text-gray-400 text-sm mt-4'>Don't have any account ? <Link className='text-black' to="/register">Register</Link></p>
                     </div>

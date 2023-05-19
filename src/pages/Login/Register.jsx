@@ -1,9 +1,52 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { VerificationContext } from '../../providers/AuthenticationProvider';
 
 const Register = () => {
+    const { EmailPasswordRegister, setImageLinkAndName } = useContext(VerificationContext)
+    const [customErrMessage, setCustomErrMessage] = useState("");
+
+    const manageUserRegister = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const imageLink = e.target.imageLink.value;
+        EmailPasswordRegister(email, password)
+            .then(userData => {
+                if (userData) {
+                    console.log(userData)
+                    setImageLinkAndName(name, imageLink)
+                        .then(() => {
+                            console.log("photo is added successfully")
+                        }).catch((error) => {
+                            switch (error.code) {
+                                case "auth/invalid-photo-url":
+                                    setCustomErrMessage("Invalid photo URL provided. Please provide a valid URL.");
+                                    break;
+                                case "auth/user-token-expired":
+                                    setCustomErrMessage("User token has expired. Please reauthenticate before updating the profile.");
+                                    break;
+                                case "auth/user-not-found":
+                                    setCustomErrMessage("User not found. Please verify the user exists.");
+                                    break;
+                                case "auth/network-request-failed":
+                                    setCustomErrMessage("A network error occurred while updating the profile. Please check your internet connection.");
+                                    break;
+                                case "auth/too-many-requests":
+                                    setCustomErrMessage("Too many requests sent from this device. Please try again later.");
+                                    break;
+                                default:
+                                    setCustomErrMessage("An error occurred during the profile update:", error);
+                                    break;
+                            }
+                        });
+                }
+            })
+    }
+
     return (
-        <div>
+        <div className='py-10'>
             <div className="relative grid grid-cols-10">
                 <div className="col-span-4 relative">
                     <img src="https://i.ibb.co/9Tq2QPc/login-banner.png" alt="" />
@@ -16,27 +59,29 @@ const Register = () => {
                     <div className="text-center">
                         <h3 className="text-2xl font-bold mt-5">Register</h3>
                         <h5 className="text-light-aqua font-light mt-2">Please enter your details to register</h5>
-                        <form className='w-10/12 mx-auto space-y-6 mt-10'>
+                        <form onSubmit={manageUserRegister} className='w-10/12 mx-auto space-y-6 mt-10'>
                             {/* Name */}
                             <div>
                                 <label className="block font-bold text-left ml-4 text-sm" htmlFor="name">Name</label>
-                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="text" name="name" placeholder="name... " id="" />
+                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="text" name="name" placeholder="name" id="" />
                             </div>
                             {/* Email */}
                             <div>
                                 <label className="block font-bold text-left ml-4 text-sm" htmlFor="email">E-Mail Address</label>
-                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="text" name="email" placeholder="email... " id="" />
+                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="text" name="email" placeholder="email" id="" />
                             </div>
                             {/* Password */}
                             <div>
                                 <label className='block text-left font-bold text-sm ml-4' htmlFor="password">Password</label>
-                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="password" name="Password" placeholder="password " id="" />
+                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="password" name="password" placeholder="password " id="" />
                             </div>
                             {/* Photo URL */}
                             <div>
-                                <label className='block text-left font-bold text-sm ml-4' htmlFor="photo">Photo URL</label>
-                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="text" name="photo" placeholder="photo URL " id="" />
+                                <label className='block text-left font-bold text-sm ml-4' htmlFor="imageLink">Photo URL</label>
+                                <input className='w-full mt-2 py-3 border border-gray-300 px-4 rounded-lg font-light text-sm' type="text" name="imageLink" placeholder="photo URL " id="" />
                             </div>
+                            {/* Error Message */}
+                            <p className="mt-2 text-primary text-start text-sm">{customErrMessage}</p>
                             <input className='w-full bg-black text-white mt-2 py-3 border px-4 rounded-lg font-bold hover:bg-slate-800 btn-animation' type="submit" value="register" />
                         </form>
                         <p className='text-gray-400 text-sm mt-4'>Already have an account ? <Link className='text-black' to="/login">Login</Link></p>
