@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { FaAlignCenter } from "react-icons/fa";
+import { VerificationContext } from '../providers/AuthenticationProvider';
+
 
 const Navbar = () => {
+    const { user, logout } = useContext(VerificationContext)
     const location = useLocation();
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+    console.log(user);
 
 
     const toggleDropdown = () => {
@@ -12,7 +17,7 @@ const Navbar = () => {
     };
     return (
         <div className='my-6'>
-            <div className="relative flex lg:flex-row lg:justify-between lg:w-4/6 w-5/6 mx-auto justify-stretch items-center">
+            <div className="relative flex lg:flex-row lg:justify-between lg:w-9/12 w-5/6 mx-auto justify-stretch items-center">
                 {/* Dropdown menu */}
                 <div className="lg:hidden">
                     <button
@@ -37,7 +42,7 @@ const Navbar = () => {
                     >
                         Blogs
                     </NavLink>
-                    
+
                     <div
                         className='hidden'
                     >
@@ -63,11 +68,13 @@ const Navbar = () => {
                 </div>
                 {/* logo */}
                 <img className='mx-auto' src="https://i.ibb.co/QkZHLdW/logo.png" alt="" />
-                <div className="space-x-8 lg:flex hidden">
+                {user ? <><div className="space-x-8 lg:flex lg:items-center hidden">
                     <NavLink to="/myToys" className={location.pathname === '/myToys' ? 'text-secondary' : ''}>My Toys</NavLink>
                     <NavLink to="/addToy" className={location.pathname === '/addToy' ? 'text-secondary' : ''}>Add A Toy</NavLink>
+                    <button onClick={logout} className='py-2 px-2 text-sm bg-primary text-white'>Logout</button>
                 </div>
-                <img className='lg:ml-10 w-9' src="https://i.ibb.co/6Rbyzp6/profile3.png" alt="" />
+                    <img className='lg:ml-8 w-9 rounded-full' src={user.photoURL} alt="" />
+                </> : <button>Login</button>}
             </div>
         </div >
     );

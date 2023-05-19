@@ -50,7 +50,7 @@ const CategoryShop = () => {
   };
   return (
     <div>
-      <h1 className="text-4xl text-center py-8 ">Categories</h1>
+      <h1 className="text-4xl py-8 pl-4 mb-8 border-secondary border-l-8 border-b-8 font-extrabold w-1/3">Categories</h1>
       <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex rounded p-4">
         <div className="">
           <TabList className="space-y-2">
