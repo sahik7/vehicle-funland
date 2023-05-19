@@ -47,13 +47,9 @@ const Register = () => {
 
     return (
         <div className='py-10'>
-            <div className="relative grid grid-cols-10">
-                <div className="col-span-4 relative">
-                    <img src="https://i.ibb.co/9Tq2QPc/login-banner.png" alt="" />
-                    <img className="absolute top-10 right-44" src="https://i.ibb.co/bbhr2mV/logo.png" alt="" />
-                </div>
-                <div className="col-span-6 flex justify-end">
-                    <img src="https://i.ibb.co/BtL0cqY/login-banner-design.png" alt="" />
+            <div className="relative">
+            <div className="flex justify-end">
+                    <img src="https://i.ibb.co/GnYMw7v/login-banner-design.png" alt="" />
                 </div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg border border-gray-300 bg-white w-[29rem] h-[45rem] rounded-lg py-8">
                     <div className="text-center">

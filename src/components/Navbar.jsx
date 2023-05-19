@@ -21,7 +21,7 @@ const Navbar = () => {
                     ><FaAlignCenter /></button>
                     {/* Dropdown items */}
                 </div>
-                <div className={`absolute right-0 text-center top-20 mt-2 w-full border bg-white rounded-md shadow-lg space-y-1 ${isDropdownOpen ? "block" : "hidden"}`}>
+                <div className={`absolute right-0 text-center top-20 mt-2 w-full border bg-white rounded-md lg:hidden shadow-lg space-y-1 ${isDropdownOpen ? "block" : "hidden"}`}>
                     <NavLink to="/home" className={` bg-light-aqua  block px-4 py-2 ${location.pathname === '/home' ? 'text-white' : ''}`}>Home</NavLink>
                     <NavLink to="/allToys" className={` bg-light-aqua  block px-4 py-2 ${location.pathname === '/allToys' ? 'text-white' : ''}`}>All Toys</NavLink>
                     <NavLink to="/myToys" className={` bg-light-aqua  block px-4 py-2 ${location.pathname === '/myToys' ? 'text-white' : ''}`}>My Toys</NavLink>
@@ -62,7 +62,7 @@ const Navbar = () => {
                     <NavLink to="/blogs" className={location.pathname === '/blogs' ? 'text-secondary' : ''}>Blogs</NavLink>
                 </div>
                 {/* logo */}
-                <img className='mx-auto' src="https://i.ibb.co/bbhr2mV/logo.png" alt="" />
+                <img className='mx-auto' src="https://i.ibb.co/QkZHLdW/logo.png" alt="" />
                 <div className="space-x-8 lg:flex hidden">
                     <NavLink to="/myToys" className={location.pathname === '/myToys' ? 'text-secondary' : ''}>My Toys</NavLink>
                     <NavLink to="/addToy" className={location.pathname === '/addToy' ? 'text-secondary' : ''}>Add A Toy</NavLink>
