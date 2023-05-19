@@ -4,11 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body{
+body {
   font-family: 'Poppins', sans-serif;
 }
 
 
-.btn-animation{
+.btn-animation {
   @apply transition-all duration-200 hover:scale-95;
+}
+
+.single-product-container {
+  box-shadow: -7px 7px rgba(0, 0, 0);
 }
