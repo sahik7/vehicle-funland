@@ -29,28 +29,18 @@ const Blogs = () => {
             </div>
             {/* Third Question */}
             <div className="bg-light-aqua/40 p-8 mt-10">
-                <h2 className="text-3xl">3. What is an access token and refresh token? How do they work and where should we store them on the client-side?</h2>
+                <h2 className="text-3xl">3. What is express js? What is Nest JS?</h2>
                 <br />
-                <p >Ans - Access and refresh token both protected that data in the server by ensuring security access while authentication and authorisation processes.
+                <p >Ans - Express JS is a Framework for Node JS which allows developers to use Javascript on server side. Express JS is more popular for small scale or simple API.
 
-                    Access token has limited time frame for usage. Whereas,  the refresh token has no time limit. client can use it to request a new access token.
-
-                    Access tokens must be kept in a secure place but in server-side browser memory such as session storage, local storage, secure HTTP-Only Cookies, Although it is not recommended.
-
-                    Refresh tokens need to store in the secure http only cookies, secure token storage,  token vault.
+                    Next JS is a Framework for react applications which are  server rendered. It helps a developer to build a Complex API in a more structured way.
                 </p>
             </div>
             {/* Fourth Question */}
             <div className="bg-light-aqua/40 p-8 mt-10">
-                <h2 className="text-3xl">4. What is an access token and refresh token? How do they work and where should we store them on the client-side?</h2>
+                <h2 className="text-3xl">4. What is MongoDB aggregate and how does it work?</h2>
                 <br />
-                <p >Ans - Access and refresh token both protected that data in the server by ensuring security access while authentication and authorisation processes.
-
-                    Access token has limited time frame for usage. Whereas,  the refresh token has no time limit. client can use it to request a new access token.
-
-                    Access tokens must be kept in a secure place but in server-side browser memory such as session storage, local storage, secure HTTP-Only Cookies, Although it is not recommended.
-
-                    Refresh tokens need to store in the secure http only cookies, secure token storage,  token vault.
+                <p >Ans - mongo DB’s aggregation is a feature that provides a variety of stages and operations such as filtering, grouping, sorting and transforming to perform advanced data analysis in the database.
                 </p>
             </div>
         </div>
