@@ -23,11 +23,12 @@ const AllToys = () => {
 
     return (
         <div className='w-9/12 mx-auto'>
-            <h1 className='text-center my-20 text-4xl font-bold border-black py-10 border-8 w-1/2 mx-auto'>FIND YOUR FAVORITE PRODUCTS</h1>
+            <h1 className='text-center my-20 text-4xl font-bold border-x-primary
+            border-y-black py-10 border-8 w-1/2 mx-auto'>FIND YOUR FAVORITE PRODUCTS</h1>
             <div className=' border-pink-600 text-center py-10'>
-                <input className=' border-2 text-center w-1/3 py-2 px-4  border-black' type="text" onChange={handleInputChange} placeholder="search" name="search" id="" />
+                <input className=' border-4 rounded-sm text-center w-1/2 py-3 px-4  border-black' type="text" onChange={handleInputChange} placeholder="search" name="search" id="" />
             </div>
-            <div className="grid grid-cols-2 gap-8 my-20">
+            <div className="grid grid-cols-2 gap-10 my-20">
                 {
                     vehicles.map(vehicle => <SingleToy key={vehicle._id} vehicle={vehicle} />)
                 }

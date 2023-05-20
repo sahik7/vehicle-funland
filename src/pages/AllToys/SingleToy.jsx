@@ -6,17 +6,19 @@ const SingleToy = ({ vehicle }) => {
     console.log(vehicle)
     return (
         <div>
-            <div className="border-black border-4 single-product-container">
+            <div className="border-black border-4 h-[21rem] single-product-container flex flex-col justify-between">
                 <div className="grid grid-cols-8">
-                    <div className="col-span-3">
+                    <div className="col-span-4">
                         <img className="" src="for-test.jpg" alt="" />
                     </div>
-                    <div className=" col-span-5 p-4">
-                        <h4 className='font-medium text-sm text-secondary mt-2'>{Seller}</h4>
-                        <h2 className='font-bold text-2xl py-2'>{ToyName}</h2>
+                    <div className=" col-span-4 p-4 flex flex-col justify-between ">
                         <div>
-                            <p className='bg-red-100 my-2 text-center text-[13px] py-1 w-[38%] text-primary'>{SubCategory}</p>
-                            <p className='mt-4 font-light'>In Stock -  {AvailableQuantity}</p>
+                        <h2 className='font-bold text-2xl py-2'>{ToyName}</h2>
+                        <h4 className='font-medium text-sm text-secondary mt-2'>{Seller}</h4>
+                            <p className='mt-4 font-light text-sm'>In Stock -  {AvailableQuantity}</p>
+                        </div>
+                        <div className='flex items-center space-x-3'><p className='font-bold text-'>Category</p>
+                            <p className='bg-red-100 my-2 text-center text-[13px] py-1 w-[45%] text-primary'>{SubCategory}</p>
                         </div>
                     </div>
                 </div>
