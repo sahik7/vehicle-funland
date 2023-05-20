@@ -75,9 +75,6 @@ const CategoryShop = () => {
           <TabPanel>
             <SubCategoryContainer vehicles={vehicles}/>
           </TabPanel>
-          <TabPanel>
-            <SubCategoryContainer vehicles={vehicles}/>
-          </TabPanel>
         </div>
       </Tabs>
     </div>

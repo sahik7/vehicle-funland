@@ -12,6 +12,7 @@ import Blogs from '../pages/Blogs/Blogs';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Login/Register';
 import ProtectedRoute from './ProtectedRoute';
+import SingleToyDetails from '../pages/SingleToyDetails/SingleToyDetails';
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
             {
                 path: "/addToy",
                 element: <ProtectedRoute><AddToys></AddToys></ProtectedRoute>,
+            },
+            {
+                path: "/vehicles/:id",
+                element: <ProtectedRoute><SingleToyDetails></SingleToyDetails></ProtectedRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/vehicles/${params.id}`)
             },
             {
                 path: "/blogs",

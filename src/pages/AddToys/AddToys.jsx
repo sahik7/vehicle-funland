@@ -4,16 +4,17 @@ import { VerificationContext } from '../../providers/AuthenticationProvider';
 const AddToys = () => {
     const { user } = useContext(VerificationContext)
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState("")
     const [toyData, setToyData] = useState({
-        name: '',
-        photoUrl: '',
-        sellerName: user?.displayName || '',
-        sellerEmail: user?.email || '',
-        subCategory: '',
-        price: '',
-        rating: '',
-        availableQuantity: '',
-        details: ''
+        ToyName: '',
+        Image: '',
+        Seller: user?.displayName || '',
+        SellerEmail: user?.email || '',
+        SubCategory: '',
+        Price: '',
+        Rating: '',
+        AvailableQuantity: '',
+        Details: ''
     });
 
 
@@ -26,9 +27,9 @@ const AddToys = () => {
     // handle Submit
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!toyData.name || !toyData.photoUrl || !toyData.subCategory || !toyData.price || !toyData.rating || !toyData.availableQuantity || !toyData.details
+        if (!toyData.ToyName || !toyData.Image || !toyData.SubCategory || !toyData.Price || !toyData.Rating || !toyData.AvailableQuantity || !toyData.Details
         ) {
-            setErrorMessageMessage('Please fill in all the required fields');
+            setErrorMessage('Please fill in all the required fields');
             return;
         }
         try {
@@ -42,28 +43,30 @@ const AddToys = () => {
 
             if (res.ok) {
                 // Successful submission
-                console.log('Toy added successfully');
+                setSuccessMessage('Toy added successfully');
                 // Reset form data
                 setToyData({
-                    name: '',
-                    photoUrl: '',
-                    sellerName: user?.displayName || '',
-                    sellerEmail: user?.email || '',
-                    subCategory: '',
-                    price: '',
-                    rating: '',
-                    availableQuantity: '',
-                    details: ''
+                    ToyName: '',
+                    Image: '',
+                    Seller: user?.displayName || '',
+                    SellerEmail: user?.email || '',
+                    SubCategory: '',
+                    Price: '',
+                    Rating: '',
+                    AvailableQuantity: '',
+                    Details: ''
                 });
                 setErrorMessage('');
             } else {
                 // Error occurred
                 console.log('Failed to add toy');
                 setErrorMessage('Failed to add toy. Please try again.');
+                setSuccessMessage("")
             }
         } catch (error) {
             console.error('Error:', error);
             setErrorMessage('An error occurred. Please try again.');
+            setSuccessMessage("")
         }
 
 
@@ -71,6 +74,7 @@ const AddToys = () => {
 
     return (
         <div className='border-2 border-black w-9/12 mx-auto p-8 single-product-container my-20'>
+            <h1 className=' mb-10 text-3xl font-bold'>Add toys</h1>
             <div className='grid grid-cols-10'>
                 <div className='col-span-8'>
                     <form className='w-2/3 space-y-8' onSubmit={handleSubmit}>
@@ -79,18 +83,18 @@ const AddToys = () => {
                             <input
                                 className='rounded-sm border py-2 px-5 border-black'
                                 type='text'
-                                name='name'
-                                placeholder='name'
-                                value={toyData.name}
+                                name='ToyName'
+                                placeholder='Toy Name'
+                                value={toyData.ToyName}
                                 onChange={handleChange}
                             />
                             {/* Picture */}
                             <input
                                 className='rounded-sm border py-2 px-5 border-black'
                                 type='text'
-                                name='photoUrl'
+                                name='Image'
                                 placeholder='photo Url'
-                                value={toyData.photoUrl}
+                                value={toyData.Image}
                                 onChange={handleChange}
                             />
                         </div>
@@ -98,18 +102,18 @@ const AddToys = () => {
                         <input
                             className='block py-2 px-5 border border-black w-full'
                             type='text'
-                            name='sellerName'
-                            placeholder='seller Name'
-                            value={toyData.sellerName}
+                            name='Seller'
+                            placeholder='Seller Name'
+                            value={toyData.Seller}
                             onChange={handleChange}
                         />
                         {/* Seller Email */}
                         <input
                             className='block py-2 px-5 border border-black w-full'
-                            type='email'
-                            name='sellerEmail'
+                            type='Email'
+                            name='SellerEmail'
                             placeholder='seller Email'
-                            value={toyData.sellerEmail}
+                            value={toyData.SellerEmail}
                             onChange={handleChange}
                         />
                         <div className='flex w-full justify-between'>
@@ -117,18 +121,18 @@ const AddToys = () => {
                             <input
                                 className='rounded-sm border py-2 px-5 border-black'
                                 type='text'
-                                name='subCategory'
+                                name='SubCategory'
                                 placeholder='sub Category'
-                                value={toyData.subCategory}
+                                value={toyData.SubCategory}
                                 onChange={handleChange}
                             />
                             {/* Price */}
                             <input
                                 className='rounded-sm border py-2 px-5 border-black'
                                 type='text'
-                                name='price'
-                                placeholder='price'
-                                value={toyData.price}
+                                name='Price'
+                                placeholder='Price'
+                                value={toyData.Price}
                                 onChange={handleChange}
                             />
                         </div>
@@ -137,27 +141,29 @@ const AddToys = () => {
                             <input
                                 className='rounded-sm border py-2 px-5 border-black'
                                 type='text'
-                                name='rating'
-                                placeholder='rating'
-                                value={toyData.rating}
+                                name='Rating'
+                                placeholder='Rating'
+                                value={toyData.Rating}
                                 onChange={handleChange}
                             />
                             {/* Available Quantity */}
                             <input
                                 className='rounded-sm border py-2 px-5 border-black'
                                 type='text'
-                                name='availableQuantity'
-                                placeholder='availableQuantity'
-                                value={toyData.availableQuantity}
+                                name='AvailableQuantity'
+                                placeholder='AvailableQuantity'
+                                value={toyData.AvailableQuantity}
                                 onChange={handleChange}
                             />
                         </div>
                         <textarea
-                            className='rounded-sm resize-none w-full h-32 border border-black'
-                            name='details'
-                            value={toyData.details}
+                            className='rounded-sm resize-none w-full h-32 border border-black p-4'
+                            name='Details'
+                            placeholder='Details...'
+                            value={toyData.Details}
                             onChange={handleChange}
                         />
+                        {successMessage && <p className='text-green-500'>{successMessage}</p>}
                         {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
                         <div className='w-full flex justify-end'>
                             <input
@@ -175,7 +181,7 @@ const AddToys = () => {
                     />
                 </div>
             </div>
-            <h1>Add toys</h1>
+
         </div>
     );
 };

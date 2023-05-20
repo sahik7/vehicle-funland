@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleToy = ({ vehicle }) => {
-    const { Image, Seller, ToyName, AvailableQuantity, Price, SubCategory } = vehicle;
+    const { _id, Image, Seller, ToyName, AvailableQuantity, Price, SubCategory } = vehicle;
 
     console.log(vehicle)
     return (
@@ -24,12 +25,12 @@ const SingleToy = ({ vehicle }) => {
                 </div>
                 <div className='h-12 mt-8 grid grid-cols-6'>
                     {/* View Details */}
-                    <div className=' flex justify-center border-4 border-white items-center col-span-4'>
-                        <button className='font-bold w-full h-full bg-black text-white'>View Details</button>
+                    <div className='border-4 border-white items-center col-span-4'>
+                        <Link to={`/vehicles/${_id}`} className='flex justify-center font-bold w-full h-full bg-black text-white'><button >View Details</button></Link>
                     </div>
                     {/* Price */}
                     <div className=' col-span-2 flex justify-center items-center'>
-                        <p className='font-bold px-12 py-2 '>{Price}</p>
+                        <p className='font-bold px-12 py-2 '>${Price}</p>
                     </div>
                 </div>
             </div>
