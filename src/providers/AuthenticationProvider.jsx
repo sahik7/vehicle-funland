@@ -10,6 +10,7 @@ const VerificationContext = createContext()
 
 const AuthenticationProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     // Providers
     const GoogleProvider = new GoogleAuthProvider();
@@ -17,18 +18,21 @@ const AuthenticationProvider = ({ children }) => {
 
     // Register Function
     function EmailPasswordRegister(email, password) {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
 
     // Login Email
     const EmailPasswordLogin = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
 
 
     // Login Google
     function loginGoogle() {
+        setLoading(true)
         return signInWithPopup(auth, GoogleProvider);
     }
 
@@ -45,6 +49,7 @@ const AuthenticationProvider = ({ children }) => {
 
     // logout
     const logout = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -56,6 +61,7 @@ const AuthenticationProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (presentUser) => {
             setUser(presentUser);
+            setLoading(false)
         });
         return () => { unsubscribe() };
     }, [])
@@ -63,7 +69,7 @@ const AuthenticationProvider = ({ children }) => {
 
 
 
-    const userAccountInformation = { user, loginGoogle, EmailPasswordLogin, EmailPasswordRegister, setImageLinkAndName, logout }
+    const userAccountInformation = { user, loginGoogle, EmailPasswordLogin, EmailPasswordRegister, setImageLinkAndName, logout, loading }
 
     return (
         <div>
