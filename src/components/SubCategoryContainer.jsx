@@ -1,11 +1,11 @@
 import React from 'react';
-import SingleToy from '../pages/AllToys/SingleToy';
+import SubCategoryItem from './SubCategoryItem';
 
 const SubCategoryContainer = ({ vehicles }) => {
     return (
-        <div className="grid grid-cols-2 px-4 mx-auto gap-4">
+        <div className="grid grid-cols-2 px-4 mx-auto gap-14 ">
                 {
-                    vehicles.map(vehicle => <SingleToy key={vehicle._id} vehicle={vehicle} />)
+                    vehicles.map(vehicle => <SubCategoryItem key={vehicle._id} vehicle={vehicle} />)
                 }
             </div>
     );

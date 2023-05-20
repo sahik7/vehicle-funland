@@ -26,22 +26,19 @@ const CategoryShop = () => {
     setActiveTabIndex(index);
     switch (index) {
       case 0:
-        setSubCategory('Flying');
-        break;
-      case 1:
-        setSubCategory('Sailing');
-        break;
-      case 2:
         setSubCategory('Automobiles');
         break;
-      case 3:
+        case 1:
         setSubCategory('Construction');
         break;
-      case 4:
+      case 2:
+        setSubCategory("Mini")
+        break;
+      case 3:
         setSubCategory('Tractor');
         break;
-      case 5:
-        setSubCategory('Cargo');
+      case 4:
+        setSubCategory('Truck');
         break;
       default:
         subCategory = '';
@@ -53,12 +50,11 @@ const CategoryShop = () => {
       <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex rounded p-4">
         <div className="">
           <TabList className="space-y-2">
-            <Tab className={`border border-black p-1 ${activeTabIndex === 0 ? 'active-tab' : ''}`}>Flying Vehicles</Tab>
-            <Tab className={`border border-black p-1 ${activeTabIndex === 1 ? 'active-tab' : ''}`}>Sailing Vehicles</Tab>
-            <Tab className={`border border-black p-1 ${activeTabIndex === 2 ? 'active-tab' : ''}`}>Automobile Vehicles</Tab>
-            <Tab className={`border border-black p-1 ${activeTabIndex === 3 ? 'active-tab' : ''}`}>Construction Vehicles</Tab>
-            <Tab className={`border border-black p-1 ${activeTabIndex === 4 ? 'active-tab' : ''}`}>Tractor Vehicles</Tab>
-            <Tab className={`border border-black p-1 ${activeTabIndex === 5 ? 'active-tab' : ''}`}>Cargo Vehicles</Tab>
+            <Tab className={`border border-black p-1 ${activeTabIndex === 0 ? 'active-tab' : ''}`}>Automobiles Vehicles</Tab>
+            <Tab className={`border border-black p-1 ${activeTabIndex === 1 ? 'active-tab' : ''}`}>Construction Vehicles</Tab>
+            <Tab className={`border border-black p-1 ${activeTabIndex === 2 ? 'active-tab' : ''}`}>Mini Vehicles</Tab>
+            <Tab className={`border border-black p-1 ${activeTabIndex === 3 ? 'active-tab' : ''}`}>Tractor Vehicles</Tab>
+            <Tab className={`border border-black p-1 ${activeTabIndex === 4 ? 'active-tab' : ''}`}>Truck Vehicles</Tab>
           </TabList>
         </div>
 

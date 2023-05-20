@@ -9,7 +9,7 @@ const SingleToy = ({ vehicle }) => {
             <div className="border-black border-4 h-[21rem] single-product-container flex flex-col justify-between">
                 <div className="grid grid-cols-8">
                     <div className="col-span-4">
-                        <img className="" src="for-test.jpg" alt="" />
+                        <img className="" src={Image} alt="" />
                     </div>
                     <div className=" col-span-4 p-4 flex flex-col justify-between ">
                         <div>
