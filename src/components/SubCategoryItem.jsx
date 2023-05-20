@@ -1,15 +1,16 @@
 import React from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import Rating from 'react-rating';
+import { default as Ratings } from 'react-rating';
 
 const SubCategoryItem = ({ vehicle }) => {
-    const { ToyName, AvailableQuantity, Price } = vehicle;
+    const { ToyName, Rating, Price, Image } = vehicle;
+    console.log(vehicle)
     return (
         <div>
             <div className="border-black border-4 h-[25rem] single-product-container flex flex-col justify-between">
                 <div>
                     <div>
-                        <img className="mx-auto w-1/2" src="for-test.jpg" alt="" />
+                        <img className="mx-auto w-1/2" src={Image} alt="" />
                     </div>
                     <div className=" col-span-4 p-4 flex flex-col justify-between ">
                         <div>
@@ -18,14 +19,14 @@ const SubCategoryItem = ({ vehicle }) => {
                         <div className='flex justify-between items-center space-x-3 mt-2'>
                             <p className='text-xl font-bold my-2 border-l-primary border-l-4 pl-4'>{Price}</p>
                             <div className='pr-4 flex space-x-2'>
-                                <Rating
-                                    placeholderRating={3.5}
+                                <Ratings
+                                    placeholderRating={Rating}
                                     emptySymbol={<FaRegStar className='text-gray-200' />}
                                     readonly
                                     fullSymbol={<FaStar />}
                                     placeholderSymbol={<FaStar className='text-secondary' />}
                                 />
-                                <p className='text-sm text-gray-500'>&#40; 3.5 &#41;</p>
+                                <p className='text-sm text-gray-500'>&#40; {Rating} &#41;</p>
                             </div>
 
                         </div>

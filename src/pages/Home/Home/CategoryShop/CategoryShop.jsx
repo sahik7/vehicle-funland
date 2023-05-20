@@ -13,7 +13,8 @@ const CategoryShop = () => {
       try {
         const response = await fetch(`http://localhost:5000/vehicles?SubCategory=${subCategory}`);
         const data = await response.json();
-        setVehicles(data);
+        const limitedData = data.slice(0, 2);
+        setVehicles(limitedData);
       } catch (error) {
       }
     };
