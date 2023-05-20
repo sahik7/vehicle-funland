@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { default as Ratings } from 'react-rating';
+import { Link } from 'react-router-dom';
 
 const SubCategoryItem = ({ vehicle }) => {
-    const { ToyName, Rating, Price, Image } = vehicle;
+    const { _id, ToyName, Rating, Price, Image } = vehicle;
     console.log(vehicle)
     return (
         <div>
@@ -34,7 +35,7 @@ const SubCategoryItem = ({ vehicle }) => {
                     </div>
                 </div>
                 {/* View Details */}
-                <button className='font-bold bg-black border-2 border-white py-2 text-white'>View Details</button>
+                <Link to={`/vehicles/${_id}`} className='font-bold text-center bg-black border-2 border-white py-2 text-white'><button >View Details</button></Link>
 
             </div>
         </div>
