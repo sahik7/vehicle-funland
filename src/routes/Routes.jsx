@@ -11,6 +11,7 @@ import AddToys from '../pages/AddToys/AddToys';
 import Blogs from '../pages/Blogs/Blogs';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Login/Register';
+import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
     {
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myToys",
-                element: <MyToys></MyToys>,
+                element: <ProtectedRoute><MyToys></MyToys></ProtectedRoute>,
             },
             {
                 path: "/addToy",
-                element: <AddToys></AddToys>,
+                element: <ProtectedRoute><AddToys></AddToys></ProtectedRoute>,
             },
             {
                 path: "/blogs",

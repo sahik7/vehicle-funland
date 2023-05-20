@@ -15,7 +15,6 @@ const CategoryShop = () => {
         const data = await response.json();
         setVehicles(data);
       } catch (error) {
-        console.log(error);
       }
     };
 

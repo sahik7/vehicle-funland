@@ -1,11 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { VerificationContext } from '../../providers/AuthenticationProvider';
 
 
 const Login = () => {
     const { loginGoogle, EmailPasswordLogin } = useContext(VerificationContext)
     const [customErrMessage, setCustomErrMessage] = useState("");
+    const location = useLocation();
+    const navigate = useNavigate();
+
+
+    const from = location.state?.from?.pathname || '/';
 
 
 
@@ -14,6 +19,9 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         EmailPasswordLogin(email, password)
+        .then(() => {
+            navigate(from, { replace: true })
+        })
             .catch((error) => {
                 switch (error.code) {
                     case 'auth/user-not-found':
@@ -28,8 +36,14 @@ const Login = () => {
                 }
             });
 
-        console.log(customErrMessage)
+    }
 
+
+    const manageGoogleLogin = () => {
+        loginGoogle()
+        .then(() => {
+            navigate(from, { replace: true })
+        })
     }
 
 
@@ -43,7 +57,7 @@ const Login = () => {
                     <div className="text-center">
                         <h3 className="text-2xl font-bold mt-5">Login</h3>
                         <h5 className="text-light-aqua font-light mt-2">Please enter your details to login</h5>
-                        <button onClick={loginGoogle} className="mx-auto mt-8 py-3 border border-gray-300 px-20 rounded-lg font-semibold flex items-center btn-animation"> <img className="w-6 mr-4" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt="" /> Continue with Google</button>
+                        <button onClick={manageGoogleLogin} className="mx-auto mt-8 py-3 border border-gray-300 px-20 rounded-lg font-semibold flex items-center btn-animation"> <img className="w-6 mr-4" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt="" /> Continue with Google</button>
                         <div className="py-6 flex justify-between items-center w-5/6 mx-auto">
                             <hr className='border-1 w-3/6' />
                             <p className="px-2">or</p>

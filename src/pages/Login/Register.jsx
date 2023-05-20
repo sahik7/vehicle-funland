@@ -5,6 +5,7 @@ import { VerificationContext } from '../../providers/AuthenticationProvider';
 const Register = () => {
     const { EmailPasswordRegister, setImageLinkAndName } = useContext(VerificationContext)
     const [customErrMessage, setCustomErrMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("")
 
     const manageUserRegister = (e) => {
         e.preventDefault();
@@ -14,11 +15,10 @@ const Register = () => {
         const imageLink = e.target.imageLink.value;
         EmailPasswordRegister(email, password)
             .then(userData => {
+                setSuccessMessage("Register Successfully !!!")
                 if (userData) {
-                    console.log(userData)
                     setImageLinkAndName(name, imageLink)
                         .then(() => {
-                            console.log("photo is added successfully")
                         }).catch((error) => {
                             switch (error.code) {
                                 case "auth/invalid-photo-url":
@@ -43,15 +43,32 @@ const Register = () => {
                         });
                 }
             })
+            .catch(error => {
+                setSuccessMessage("")
+                switch (error.code) {
+                    case 'auth/weak-password':
+                        setCustomErrMessage('The password provided is too weak. Please choose a stronger password.');
+                        break;
+                    case 'auth/invalid-email':
+                        setCustomErrMessage('The email address provided is invalid. Please enter a valid email address.');
+                        break;
+                    case 'auth/email-already-in-use':
+                        setCustomErrMessage('The email address provided is already in use. Please try logging in instead.');
+                        break;
+                    default:
+                        setCustomErrMessage('An error occurred during signup.');
+                        break;
+                }
+            })
     }
 
     return (
         <div className='py-10'>
             <div className="relative">
-            <div className="flex justify-end">
+                <div className="flex justify-end">
                     <img src="https://i.ibb.co/GnYMw7v/login-banner-design.png" alt="" />
                 </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg border border-gray-300 bg-white w-[29rem] h-[45rem] rounded-lg py-8">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg border border-gray-300 bg-white w-[29rem] h-[48rem] rounded-lg py-8">
                     <div className="text-center">
                         <h3 className="text-2xl font-bold mt-5">Register</h3>
                         <h5 className="text-light-aqua font-light mt-2">Please enter your details to register</h5>
@@ -78,6 +95,7 @@ const Register = () => {
                             </div>
                             {/* Error Message */}
                             <p className="mt-2 text-primary text-start text-sm">{customErrMessage}</p>
+                            <p className="mt-2 text-green-600 text-start text-sm">{successMessage}</p>
                             <input className='w-full bg-black text-white mt-2 py-3 border px-4 rounded-lg font-bold hover:bg-slate-800 btn-animation' type="submit" value="register" />
                         </form>
                         <p className='text-gray-400 text-sm mt-4'>Already have an account ? <Link className='text-black' to="/login">Login</Link></p>

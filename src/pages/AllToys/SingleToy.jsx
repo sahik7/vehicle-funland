@@ -2,7 +2,6 @@ import React from 'react';
 
 const SingleToy = ({vehicle}) => {
     const {Image, Seller} = vehicle;
-    console.log(vehicle);
     return (
         <div>
             <div className="border-4 border-black single-product-container grid grid-cols-6">

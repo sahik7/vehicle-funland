@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { FaAlignCenter } from "react-icons/fa";
 import { VerificationContext } from '../providers/AuthenticationProvider';
 
@@ -9,12 +9,23 @@ const Navbar = () => {
     const location = useLocation();
     const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-    console.log(user);
-
 
     const toggleDropdown = () => {
         setDropdownOpen(!isDropdownOpen);
     };
+
+
+    const managingLogOut = () => {
+        logout()
+            .then(() => {
+                console.log('logged out');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+
     return (
         <div className='my-6'>
             <div className="relative flex lg:flex-row lg:justify-between lg:w-9/12 w-5/6 mx-auto justify-stretch items-center">
@@ -67,14 +78,14 @@ const Navbar = () => {
                     <NavLink to="/blogs" className={location.pathname === '/blogs' ? 'text-secondary' : ''}>Blogs</NavLink>
                 </div>
                 {/* logo */}
-                <img className='mx-auto' src="https://i.ibb.co/QkZHLdW/logo.png" alt="" />
-                {user ? <><div className="space-x-8 lg:flex lg:items-center hidden">
+                <Link className='mx-auto' to="/home"><img src="https://i.ibb.co/QkZHLdW/logo.png" alt="" /></Link>
+                <div className="space-x-8 lg:flex lg:items-center hidden">
                     <NavLink to="/myToys" className={location.pathname === '/myToys' ? 'text-secondary' : ''}>My Toys</NavLink>
                     <NavLink to="/addToy" className={location.pathname === '/addToy' ? 'text-secondary' : ''}>Add A Toy</NavLink>
-                    <button onClick={logout} className='py-2 px-2 text-sm bg-primary text-white'>Logout</button>
+                    <button onClick={managingLogOut} className='py-2 px-2 text-sm bg-primary text-white'>Logout</button>
                 </div>
-                    <img className='lg:ml-8 w-9 rounded-full' src={user.photoURL} alt="" />
-                </> : <button>Login</button>}
+                    <img className='lg:ml-8 w-9 rounded-full' src={user?.photoURL} alt="" />
+                 <Link to="/login">Login</Link>
             </div>
         </div >
     );

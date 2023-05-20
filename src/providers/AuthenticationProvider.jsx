@@ -10,7 +10,6 @@ const VerificationContext = createContext()
 
 const AuthenticationProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    console.log(user)
 
     // Providers
     const GoogleProvider = new GoogleAuthProvider();
@@ -42,24 +41,27 @@ const AuthenticationProvider = ({ children }) => {
     }
 
 
-    // User Authentication State
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (signInUser) => {
-            if (signInUser) {
-                setUser(signInUser);
-
-            } else {
-            }
-        });
-        unsubscribe()
-    }, [])
-
 
 
     // logout
     const logout = () => {
-        signOut(auth)
+        return signOut(auth)
     }
+
+
+
+
+
+    // User Authentication State
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (presentUser) => {
+            setUser(presentUser);
+        });
+        return () => { unsubscribe() };
+    }, [])
+
+
+
 
     const userAccountInformation = { user, loginGoogle, EmailPasswordLogin, EmailPasswordRegister, setImageLinkAndName, logout }
 
