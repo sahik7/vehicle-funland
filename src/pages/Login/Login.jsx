@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
 
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/home';
 
 
 

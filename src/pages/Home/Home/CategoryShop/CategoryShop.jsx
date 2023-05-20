@@ -48,7 +48,7 @@ const CategoryShop = () => {
     }
   };
   return (
-    <div>
+    <div className="py-20">
       <h1 className="text-4xl py-8 pl-4 mb-8 border-secondary border-l-8 border-b-8 font-extrabold w-1/3">Categories</h1>
       <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex rounded p-4">
         <div className="">

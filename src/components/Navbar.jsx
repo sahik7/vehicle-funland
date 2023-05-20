@@ -28,7 +28,7 @@ const Navbar = () => {
 
     return (
         <div className='my-6'>
-            <div className="relative flex lg:flex-row lg:justify-between lg:w-9/12 w-5/6 mx-auto justify-stretch items-center">
+            <div className="relative z-10 flex lg:flex-row lg:justify-between lg:w-9/12 w-5/6 mx-auto justify-stretch items-center">
                 {/* Dropdown menu */}
                 <div className="lg:hidden">
                     <button
@@ -53,7 +53,7 @@ const Navbar = () => {
                     >
                         Blogs
                     </NavLink>
-
+                    {user ? <button onClick={managingLogOut} className='py-2 px-2 text-sm bg-primary w-full text-white'>Logout</button> : <Link className='py-2 px-2 w-full text-white block text-sm bg-primary' to="/login">Login</Link>}
                     <div
                         className='hidden'
                     >
@@ -79,13 +79,13 @@ const Navbar = () => {
                 </div>
                 {/* logo */}
                 <Link className='mx-auto' to="/home"><img src="https://i.ibb.co/QkZHLdW/logo.png" alt="" /></Link>
-                <div className="space-x-8 lg:flex lg:items-center hidden">
+                {user ? <><div className="space-x-8 lg:flex lg:items-center hidden">
                     <NavLink to="/myToys" className={location.pathname === '/myToys' ? 'text-secondary' : ''}>My Toys</NavLink>
                     <NavLink to="/addToy" className={location.pathname === '/addToy' ? 'text-secondary' : ''}>Add A Toy</NavLink>
                     <button onClick={managingLogOut} className='py-2 px-2 text-sm bg-primary text-white'>Logout</button>
                 </div>
-                    <img className='lg:ml-8 w-9 rounded-full' src={user?.photoURL} alt="" />
-                 <Link to="/login">Login</Link>
+                    <img className='lg:ml-8 w-9 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" /></> : <Link className='py-2 hidden lg:block px-2 text-sm bg-primary text-white' to="/login">Login</Link>}
+
             </div>
         </div >
     );
