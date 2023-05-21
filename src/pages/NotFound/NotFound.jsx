@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import DynamicTitle from '../../components/DynamicTitle';
 
 const NotFound = () => {
     const navigate = useNavigate()
     return (
         <div>
+            <DynamicTitle title="Not Found"/>
             <div className="mx-auto mt-10">
                 <div className="text-center">
                     <img src="https://i.ibb.co/y43bwLN/lost.jpg" className="mx-auto" alt="" />

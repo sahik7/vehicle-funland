@@ -7,4 +7,5 @@ import AuthenticationProvider from './providers/AuthenticationProvider';
 
 
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(<AuthenticationProvider><RouterProvider router={router} /></AuthenticationProvider>)

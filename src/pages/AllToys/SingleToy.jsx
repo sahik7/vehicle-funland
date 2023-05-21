@@ -24,7 +24,7 @@ const SingleToy = ({ vehicle }) => {
                 <div className='h-12 mt-8 grid grid-cols-6'>
                     {/* View Details */}
                     <div className='border-4 border-white items-center col-span-4'>
-                        <Link to={`/vehicles/${_id}`} className='flex justify-center font-bold w-full h-full bg-black text-white'><button >View Details</button></Link>
+                        <Link to={`/vehicles/${_id}`} className='flex justify-center font-bold w-full h-full bg-black text-white'><button>View Details</button></Link>
                     </div>
                     {/* Price */}
                     <div className=' col-span-2 flex justify-center items-center'>
