@@ -24,7 +24,7 @@ const CategoryShop = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://vehicle-funland-server-sahik7.vercel.app/vehicles?SubCategory=${subCategory}`);
+        const response = await fetch(`https://localhost:5173/vehicles?SubCategory=${subCategory}`);
         const data = await response.json();
         const limitedData = data.slice(0, 2);
         setVehicles(limitedData);
