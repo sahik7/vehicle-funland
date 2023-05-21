@@ -82,9 +82,9 @@ const Navbar = () => {
                 {user ? <><div className="space-x-8 lg:flex lg:items-center hidden">
                     <NavLink to="/myToys" className={location.pathname === '/myToys' ? 'text-secondary' : ''}>My Toys</NavLink>
                     <NavLink to="/addToy" className={location.pathname === '/addToy' ? 'text-secondary' : ''}>Add A Toy</NavLink>
-                    <button onClick={managingLogOut} className='py-2 px-2 text-sm bg-primary text-white'>Logout</button>
+                    <button onClick={managingLogOut} className='btn-animation py-2 px-2 text-sm bg-primary text-white'>Logout</button>
                 </div>
-                    <img className='lg:ml-8 w-9 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" /></> : <Link className='py-2 hidden lg:block px-2 text-sm bg-primary text-white' to="/login">Login</Link>}
+                    <img className='lg:ml-8 w-9 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" /></> : <Link className='py-2 hidden btn-animation lg:block px-2 text-sm bg-primary text-white' to="/login">Login</Link>}
 
             </div>
         </div >

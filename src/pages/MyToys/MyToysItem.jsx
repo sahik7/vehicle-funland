@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaFileUpload, FaTrash } from 'react-icons/fa';
 
 const MyToysItem = (props) => {
 
@@ -14,6 +15,8 @@ const MyToysItem = (props) => {
             <td className="border px-4">{Price}</td>
             <td className="border px-4">{AvailableQuantity}</td>
             <td className="border px-4">{Rating}</td>
+            <td className="border px-4"><div className="flex items-center space-x-1 border-2 py-1 px-2 border-black btn-animation"><FaFileUpload/><button>Update</button></div></td>
+            <td className="border px-4"><div className="flex items-center space-x-1 border-2 py-1 px-2 border-black btn-animation"><FaTrash/><button>Delete</button></div></td>
         </tr>
     );
 };

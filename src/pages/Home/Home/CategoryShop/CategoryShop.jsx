@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SubCategoryContainer from '../../../../components/SubCategoryContainer';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const CategoryShop = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -22,7 +24,7 @@ const CategoryShop = () => {
     fetchData();
   }, [subCategory]);
 
-
+  const notify = () => toast("Wow so easy!");
   const handleTabSelect = (index) => {
     setActiveTabIndex(index);
     switch (index) {
@@ -47,6 +49,7 @@ const CategoryShop = () => {
   };
   return (
     <div className="py-20">
+      <ToastContainer />
       <h1 className="text-4xl py-8 pl-4 mb-8 border-secondary border-l-8 border-b-8 font-extrabold w-1/3">Categories</h1>
       <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex rounded p-4">
         <div className="">
@@ -61,19 +64,19 @@ const CategoryShop = () => {
 
         <div>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
           </TabPanel>
           <TabPanel>
-          <SubCategoryContainer vehicles={vehicles}/>
+          <SubCategoryContainer vehicles={vehicles} notify={notify}/>
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
           </TabPanel>
         </div>
       </Tabs>

@@ -3,9 +3,13 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 import { default as Ratings } from 'react-rating';
 import { Link } from 'react-router-dom';
 
-const SubCategoryItem = ({ vehicle }) => {
+const SubCategoryItem = ({ vehicle,notify }) => {
     const { _id, ToyName, Rating, Price, Image } = vehicle;
     console.log(vehicle)
+
+    const toast = () => {
+        notify()
+    }
     return (
         <div>
             <div className="border-black border-4 h-[25rem] single-product-container flex flex-col justify-between">
@@ -35,7 +39,7 @@ const SubCategoryItem = ({ vehicle }) => {
                     </div>
                 </div>
                 {/* View Details */}
-                <Link to={`/vehicles/${_id}`} className='font-bold text-center bg-black border-2 border-white py-2 text-white'><button >View Details</button></Link>
+                <Link onClick={toast} to={`/vehicles/${_id}`} className='font-bold text-center bg-black border-2 border-white py-2 text-white'><button >View Details</button></Link>
 
             </div>
         </div>
