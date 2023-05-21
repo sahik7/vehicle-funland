@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { VerificationContext } from '../../providers/AuthenticationProvider';
 import MyToysItem from './MyToysItem';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const [myToys, setMyToys] = useState([])
@@ -22,14 +23,31 @@ const MyToys = () => {
 
 
     const handleDeleteClick = (id) => {
-        fetch(`http://localhost:5000/vehicles/${id}`, {
-            method: 'DELETE'
-        }).then(response => response.json()).then(data => {
-            if(data.deletedCount > 0) {
-                const rest = myToys.filter(toy => toy._id !== id)
-                setMyToys(rest)
-            }
-        })
+        Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch(`http://localhost:5000/vehicles/${id}`, {
+                            method: 'DELETE'
+                        }).then(response => response.json()).then(data => {
+                            if(data.deletedCount > 0) {
+                                const rest = myToys.filter(toy => toy._id !== id)
+                                setMyToys(rest)
+                            }
+                        })
+                      Swal.fire(
+                        'Deleted!',
+                        'Your Product has been deleted.',
+                        'success'
+                      )
+                    }
+                  })
       };
 
 
