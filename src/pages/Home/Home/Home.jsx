@@ -3,6 +3,7 @@ import CategoryShop from './CategoryShop/CategoryShop';
 import Banner from '../Banner/Banner';
 import GallerySection from '../GallerySection/GallerySection';
 import OurTeam from '../OurTeam/OurTeam';
+import Awards from './Awards/Awards';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <GallerySection/>
             <OurTeam/>
             <CategoryShop/>
+            <Awards/>
         </div>
     );
 };
