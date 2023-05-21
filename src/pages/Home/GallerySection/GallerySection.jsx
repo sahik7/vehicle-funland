@@ -7,7 +7,7 @@ const GallerySection = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch('https://localhost:5173/vehicles');
+                const response = await fetch('https://vehicle-funland-server.vercel.app/vehicles/vehicles');
                 const data = await response.json();
                 const imageUrls = data.map((item) => item.Image);
                 setImages(imageUrls);

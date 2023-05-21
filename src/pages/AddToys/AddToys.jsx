@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { VerificationContext } from '../../providers/AuthenticationProvider';
+import DynamicTitle from '../../components/DynamicTitle';
 
 const AddToys = () => {
     const { user } = useContext(VerificationContext)
@@ -33,7 +34,7 @@ const AddToys = () => {
             return;
         }
         try {
-            const res = await fetch('https://localhost:5173/vehicles', {
+            const res = await fetch('https://vehicle-funland-server.vercel.app/vehicles/vehicles', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -74,6 +75,7 @@ const AddToys = () => {
 
     return (
         <div className='border-2 border-black w-9/12 mx-auto p-8 single-product-container my-20'>
+            <DynamicTitle title="Add A Toys"/>
             <h1 className=' mb-10 text-3xl font-bold'>Add toys</h1>
             <div className='grid grid-cols-10'>
                 <div className='col-span-8'>

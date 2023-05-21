@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SingleToy from './SingleToy';
 import { useLoaderData } from 'react-router-dom';
+import DynamicTitle from '../../components/DynamicTitle';
 
 const AllToys = () => {
   const { productCount } = useLoaderData();
@@ -14,12 +15,12 @@ const AllToys = () => {
     const fetchVehicles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/vehicles?ToyName=${keyword}&limit=${productLimit}&page=${presentPage}`
+          `https://vehicle-funland-server.vercel.app/vehicles?ToyName=${keyword}&limit=${productLimit}&page=${presentPage}`
         );
         const data = await response.json();
         setVehicles(data);
 
-        
+
         const pageCount = Math.ceil(productCount / productLimit);
         setPageCount(pageCount);
       } catch (error) {
@@ -39,6 +40,7 @@ const AllToys = () => {
 
   return (
     <div className='w-9/12 mx-auto'>
+      <DynamicTitle title="All Toys"/>
       <h1 className='text-center my-20 text-4xl font-bold border-x-primary border-y-black py-10 border-8 w-1/2 mx-auto'>
         FIND YOUR FAVORITE PRODUCTS
       </h1>

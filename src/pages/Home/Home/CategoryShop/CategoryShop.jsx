@@ -24,7 +24,7 @@ const CategoryShop = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://localhost:5173/vehicles?SubCategory=${subCategory}`);
+        const response = await fetch(`https://vehicle-funland-server.vercel.app/vehicles?SubCategory=${subCategory}`);
         const data = await response.json();
         const limitedData = data.slice(0, 2);
         setVehicles(limitedData);
@@ -35,7 +35,8 @@ const CategoryShop = () => {
     fetchData();
   }, [subCategory]);
 
-  const notify = () => toast("Wow so easy!");
+
+
   const handleTabSelect = (index) => {
     setActiveTabIndex(index);
     switch (index) {
@@ -76,19 +77,19 @@ const CategoryShop = () => {
 
         <div>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify} />
+            <SubCategoryContainer vehicles={vehicles} />
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify} />
+            <SubCategoryContainer vehicles={vehicles} />
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify} />
+            <SubCategoryContainer vehicles={vehicles} />
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify} />
+            <SubCategoryContainer vehicles={vehicles} />
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify} />
+            <SubCategoryContainer vehicles={vehicles} />
           </TabPanel>
         </div>
       </Tabs>

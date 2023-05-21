@@ -1,8 +1,10 @@
 import React from 'react';
+import DynamicTitle from '../../components/DynamicTitle';
 
 const Blogs = () => {
     return (
         <div className="w-10/12 mx-auto my-20">
+            <DynamicTitle title="Blogs"/>
             <h1 className="text-center text-5xl font-bold my-28">Blogs</h1>
             {/* First Question */}
             <div className="bg-light-aqua/40 p-8">

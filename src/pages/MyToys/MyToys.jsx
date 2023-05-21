@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { VerificationContext } from '../../providers/AuthenticationProvider';
 import MyToysItem from './MyToysItem';
 import Swal from 'sweetalert2';
+import DynamicTitle from '../../components/DynamicTitle';
 
 const MyToys = () => {
     const [myToys, setMyToys] = useState([])
@@ -10,7 +11,7 @@ const MyToys = () => {
     useEffect(() => {
         const myData = async () => {
             try {
-                const response = await fetch(`https://localhost:5173/vehicles?SellerEmail=${user?.email}`);
+                const response = await fetch(`https://vehicle-funland-server.vercel.app/vehicles/vehicles?SellerEmail=${user?.email}`);
                 const jsonData = await response.json();
                 setMyToys(jsonData);
             } catch (error) {
@@ -33,7 +34,7 @@ const MyToys = () => {
                     confirmButtonText: 'Yes, delete it!'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                        fetch(`https://localhost:5173/vehicles/${id}`, {
+                        fetch(`https://vehicle-funland-server.vercel.app/vehicles/vehicles/${id}`, {
                             method: 'DELETE'
                         }).then(response => response.json()).then(data => {
                             if(data.deletedCount > 0) {
@@ -54,6 +55,7 @@ const MyToys = () => {
     return (
 
         <div className="container mx-auto">
+            <DynamicTitle title="My Toys"/>
             <table className="table-auto w-9/12 mx-auto my-20">
                 <thead>
                     <tr>

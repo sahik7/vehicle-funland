@@ -3,12 +3,9 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 import { default as Ratings } from 'react-rating';
 import { Link } from 'react-router-dom';
 
-const SubCategoryItem = ({ vehicle,notify }) => {
+const SubCategoryItem = ({ vehicle }) => {
     const { _id, ToyName, Rating, Price, Image } = vehicle;
 
-    const toast = () => {
-        notify()
-    }
     return (
         <div>
             <div className="border-black border-4 h-[25rem] single-product-container flex flex-col justify-between">

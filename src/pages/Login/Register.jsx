@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { VerificationContext } from '../../providers/AuthenticationProvider';
+import DynamicTitle from '../../components/DynamicTitle';
 
 const Register = () => {
     const { EmailPasswordRegister, setImageLinkAndName } = useContext(VerificationContext)
@@ -64,6 +65,7 @@ const Register = () => {
 
     return (
         <div className='py-10'>
+            <DynamicTitle title="Register"/>
             <div className="relative">
                 <div className="flex justify-end">
                     <img src="https://i.ibb.co/GnYMw7v/login-banner-design.png" alt="" />

@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             {
                 path: "/allToys",
                 element: <AllToys></AllToys>,
-                loader: () => fetch("http://localhost:5000/vehicleCount")
+                loader: () => fetch("https://vehicle-funland-server.vercel.app/vehicleCount")
             },
             {
                 path: "/myToys",
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: "/vehicles/:id",
                 element: <ProtectedRoute><SingleToyDetails></SingleToyDetails></ProtectedRoute>,
-                loader: ({params}) => fetch(`https://localhost:5173/vehicles/${params.id}`)
+                loader: ({params}) => fetch(`https://vehicle-funland-server.vercel.app/vehicles/vehicles/${params.id}`)
             },
             {
                 path: "/blogs",

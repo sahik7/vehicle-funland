@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { VerificationContext } from '../../providers/AuthenticationProvider';
+import DynamicTitle from '../../components/DynamicTitle';
 
 
 const Login = () => {
@@ -50,6 +51,7 @@ const Login = () => {
     return (
         <div>
             <div className="relative">
+            <DynamicTitle title="Login"/>
                 <div className="flex justify-end">
                     <img src="https://i.ibb.co/GnYMw7v/login-banner-design.png" alt="" />
                 </div>
