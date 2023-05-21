@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const SubCategoryItem = ({ vehicle,notify }) => {
     const { _id, ToyName, Rating, Price, Image } = vehicle;
-    console.log(vehicle)
 
     const toast = () => {
         notify()
