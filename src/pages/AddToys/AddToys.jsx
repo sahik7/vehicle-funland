@@ -75,7 +75,7 @@ const AddToys = () => {
 
     return (
         <div className='border-2 border-black w-9/12 mx-auto p-8 single-product-container my-20'>
-            <DynamicTitle title="Add A Toys"/>
+            <DynamicTitle title="Add A Toys" />
             <h1 className=' mb-10 text-3xl font-bold'>Add toys</h1>
             <div className='grid grid-cols-10'>
                 <div className='col-span-8'>
@@ -118,25 +118,30 @@ const AddToys = () => {
                             value={toyData.SellerEmail}
                             onChange={handleChange}
                         />
-                        <div className='flex w-full justify-between'>
+                        <div className='flex w-full items-end justify-between'>
                             {/* Sub-Category */}
-                            <input
-                                className='rounded-sm border py-2 px-5 border-black'
-                                type='text'
-                                name='SubCategory'
-                                placeholder='sub Category'
-                                value={toyData.SubCategory}
-                                onChange={handleChange}
-                            />
+                            <div>
+                                <p className='text-sm text-gray-400'>(Construction, Mini, Truck,Tractor)</p>
+                                <input
+                                    className='rounded-sm border py-2 px-5 border-black'
+                                    type='text'
+                                    name='SubCategory'
+                                    placeholder='sub Category'
+                                    value={toyData.SubCategory}
+                                    onChange={handleChange}
+                                />
+                            </div>
                             {/* Price */}
-                            <input
-                                className='rounded-sm border py-2 px-5 border-black'
-                                type='text'
-                                name='Price'
-                                placeholder='Price'
-                                value={toyData.Price}
-                                onChange={handleChange}
-                            />
+                            <div>
+                                <input
+                                    className='rounded-sm border py-2 px-5 border-black'
+                                    type='text'
+                                    name='Price'
+                                    placeholder='Price'
+                                    value={toyData.Price}
+                                    onChange={handleChange}
+                                />
+                            </div>
                         </div>
                         <div className='flex w-full justify-between'>
                             {/* Rating */}

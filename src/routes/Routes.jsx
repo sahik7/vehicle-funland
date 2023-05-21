@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: "/vehicles/:id",
                 element: <ProtectedRoute><SingleToyDetails></SingleToyDetails></ProtectedRoute>,
-                loader: ({params}) => fetch(`https://vehicle-funland-server.vercel.app/vehicles/vehicles/${params.id}`)
+                loader: ({params}) => fetch(`https://vehicle-funland-server.vercel.app/vehicles/${params.id}`)
             },
             {
                 path: "/blogs",

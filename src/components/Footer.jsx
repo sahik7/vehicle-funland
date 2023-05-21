@@ -13,9 +13,9 @@ const Footer = () => {
                         <img src="https://i.ibb.co/Dgwh1H2/footer-logo.png" alt="" />
                         {/* Social Media */}
                         <div className='flex lg:justify-evenly lg:space-x-0 space-x-4 w-1/4 lg:w-4/5 mt-10 lg:ml-0 ml-4'>
-                            <Link className=' text-2xl'><FaInstagram /></Link>
-                            <Link className=' text-2xl'><FaTwitter /></Link>
-                            <Link className=' text-2xl'><FaFacebook /></Link>
+                            <Link to="https://www.instagram.com/" className=' text-2xl'><FaInstagram /></Link>
+                            <Link to="https://twitter.com/" className=' text-2xl'><FaTwitter /></Link>
+                            <Link to="https://www.facebook.com/" className=' text-2xl'><FaFacebook /></Link>
                         </div>
                     </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const UpdateData = () => {
     const location = useLocation();
@@ -12,7 +13,6 @@ const UpdateData = () => {
     });
 
     const id = location.state.id;
-    console.log(id)
 
 
     // handle Change
@@ -30,14 +30,14 @@ const UpdateData = () => {
             return;
         }
         try {
-            const res = await fetch(`https://vehicle-funland-server.vercel.app/vehicles/vehicles/${id}`, {
+            const res = await fetch(`https://vehicle-funland-server.vercel.app/vehicles/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(updateData)
-            }).then(response => response.json()).then(data => {
-                setSuccessMessage('Toy added successfully !!');
+            }).then(response => response.json()).then(() => {
+                setSuccessMessage('Toy Updated successfully !!');
                 // Reset form data
                 setUpdateData({
                     Price: '',
@@ -109,7 +109,7 @@ const UpdateData = () => {
                     />
                 </div>
             </div>
-
+            
         </div>
     );
 };

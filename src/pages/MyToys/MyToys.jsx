@@ -11,7 +11,7 @@ const MyToys = () => {
     useEffect(() => {
         const myData = async () => {
             try {
-                const response = await fetch(`https://vehicle-funland-server.vercel.app/vehicles/vehicles?SellerEmail=${user?.email}`);
+                const response = await fetch(`https://vehicle-funland-server.vercel.app/vehicles?SellerEmail=${user?.email}`);
                 const jsonData = await response.json();
                 setMyToys(jsonData);
             } catch (error) {
@@ -34,7 +34,7 @@ const MyToys = () => {
                     confirmButtonText: 'Yes, delete it!'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                        fetch(`https://vehicle-funland-server.vercel.app/vehicles/vehicles/${id}`, {
+                        fetch(`https://vehicle-funland-server.vercel.app/vehicles/${id}`, {
                             method: 'DELETE'
                         }).then(response => response.json()).then(data => {
                             if(data.deletedCount > 0) {

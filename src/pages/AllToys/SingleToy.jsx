@@ -13,7 +13,7 @@ const SingleToy = ({ vehicle }) => {
                     <div className=" col-span-4 p-4 flex flex-col justify-between ">
                         <div>
                         <h2 className='font-bold text-2xl py-2'>{ToyName}</h2>
-                        <h4 className='font-medium text-sm text-secondary mt-2'>{Seller}</h4>
+                        <h4 className='font-medium text-sm text-secondary mt-2'>{Seller && Seller}</h4>
                             <p className='mt-4 font-light text-sm'>In Stock -  {AvailableQuantity}</p>
                         </div>
                         <div className='flex items-center space-x-3'><p className='font-bold text-'>Category</p>

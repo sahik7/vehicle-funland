@@ -59,7 +59,7 @@ const CategoryShop = () => {
     }
   };
   return (
-    <div className="py-20" data-aos="fade-up"
+    <div className="py-20 my-20" data-aos="fade-up"
       data-aos-anchor-placement="top-bottom">
       <h1 className="text-4xl py-8 pl-4 mb-8 border-secondary border-l-8 border-b-8 font-extrabold w-1/3">Categories</h1>
       <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="lg:flex rounded p-4">

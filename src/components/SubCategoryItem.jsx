@@ -21,7 +21,7 @@ const SubCategoryItem = ({ vehicle }) => {
                             <h2 className='font-bold text-3xl py-2'>{ToyName}</h2>
                         </div>
                         <div className='lg:flex lg:justify-between lg:items-center space-x-3 mt-2'>
-                            <p className='text-xl font-bold my-2 border-l-primary border-l-4 pl-4'>{Price}</p>
+                            <p className='text-xl font-bold my-2 border-l-primary border-l-4 pl-4'>${Price}</p>
                             <div className='pr-4 flex space-x-2'>
                                 <Ratings
                                     placeholderRating={Rating}

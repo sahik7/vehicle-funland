@@ -7,8 +7,6 @@ import { toast } from 'react-toastify';
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useContext(VerificationContext);
     const location = useLocation()
-    console.log(user)
-    console.log(location)
 
     
     
