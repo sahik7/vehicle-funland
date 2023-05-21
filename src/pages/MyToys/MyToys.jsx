@@ -21,6 +21,18 @@ const MyToys = () => {
     }, []);
 
 
+    const handleDeleteClick = (id) => {
+        fetch(`http://localhost:5000/vehicles/${id}`, {
+            method: 'DELETE'
+        }).then(response => response.json()).then(data => {
+            if(data.deletedCount > 0) {
+                const rest = myToys.filter(toy => toy._id !== id)
+                setMyToys(rest)
+            }
+        })
+      };
+
+
     return (
 
         <div className="container mx-auto">
@@ -41,7 +53,7 @@ const MyToys = () => {
                 </thead>
                 <tbody className="single-product-container">
                     {
-                        myToys.map(singleItem => <MyToysItem key={singleItem._id} singleItem={singleItem} />)
+                        myToys.map(singleItem => <MyToysItem key={singleItem._id} singleItem={singleItem} handleDeleteClick={handleDeleteClick}/>)
                     }
                 </tbody>
             </table>
