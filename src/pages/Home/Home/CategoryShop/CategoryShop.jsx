@@ -2,12 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SubCategoryContainer from '../../../../components/SubCategoryContainer';
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const CategoryShop = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [subCategory, setSubCategory] = useState("");
   const [vehicles, setVehicles] = useState([])
+
+
+  useEffect(() => {
+    Aos.init()
+  }, [])
 
 
   useEffect(() => {
@@ -31,7 +38,7 @@ const CategoryShop = () => {
       case 0:
         setSubCategory('Automobiles');
         break;
-        case 1:
+      case 1:
         setSubCategory('Construction');
         break;
       case 2:
@@ -48,7 +55,8 @@ const CategoryShop = () => {
     }
   };
   return (
-    <div className="py-20">
+    <div className="py-20" data-aos="fade-up"
+      data-aos-anchor-placement="bottom-bottom">
       <ToastContainer />
       <h1 className="text-4xl py-8 pl-4 mb-8 border-secondary border-l-8 border-b-8 font-extrabold w-1/3">Categories</h1>
       <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex rounded p-4">
@@ -64,19 +72,19 @@ const CategoryShop = () => {
 
         <div>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify} />
           </TabPanel>
           <TabPanel>
-          <SubCategoryContainer vehicles={vehicles} notify={notify}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify} />
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify} />
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify} />
           </TabPanel>
           <TabPanel>
-            <SubCategoryContainer vehicles={vehicles} notify={notify}/>
+            <SubCategoryContainer vehicles={vehicles} notify={notify} />
           </TabPanel>
         </div>
       </Tabs>
