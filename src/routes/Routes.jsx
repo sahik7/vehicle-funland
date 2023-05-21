@@ -13,6 +13,7 @@ import Login from '../pages/Login/Login';
 import Register from '../pages/Login/Register';
 import ProtectedRoute from './ProtectedRoute';
 import SingleToyDetails from '../pages/SingleToyDetails/SingleToyDetails';
+import UpdateData from '../pages/UpdateData/UpdateData';
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>,
+            },
+            {
+                path: "/update",
+                element: <UpdateData/>,
             },
 
         ]

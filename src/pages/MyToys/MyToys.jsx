@@ -35,6 +35,8 @@ const MyToys = () => {
                         <th className="table-head">Price</th>
                         <th className="table-head">Rating</th>
                         <th className="table-head">Available Quantity</th>
+                        <th className="table-head">Update</th>
+                        <th className="table-head">Delete</th>
                     </tr>
                 </thead>
                 <tbody className="single-product-container">
