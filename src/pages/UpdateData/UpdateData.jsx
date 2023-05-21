@@ -30,7 +30,7 @@ const UpdateData = () => {
             return;
         }
         try {
-            const res = await fetch(`http://localhost:5000/vehicles/${id}`, {
+            const res = await fetch(`https://vehicle-funland-server-sahik7.vercel.app/vehicles/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

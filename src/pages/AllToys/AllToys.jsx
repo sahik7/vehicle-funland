@@ -14,7 +14,7 @@ const AllToys = () => {
 
     useEffect(() => {
         (async () => {
-            const response = await fetch(`http://localhost:5000/vehicles?ToyName=${keyword}`);
+            const response = await fetch(`https://vehicle-funland-server-sahik7.vercel.app/vehicles?ToyName=${keyword}`);
             const data = await response.json();
             setVehicles(data);
         })();
