@@ -16,7 +16,7 @@ const NotFound = () => {
                         <div className='absolute -bottom-3 py-3 duration-300 group-hover:left-40 group-hover:-bottom-4 border-black
                         -translate-x-1/2 left-1/2 px-20 border-4 group-hover:bg-white bg-black text-white'>Home</div>
                         <button onClick={() => navigate("/home")} className='py-3 w-3/5 text-base absolute group-hover:-top-12 -top-10 -translate-x-1/2 left-1/2 px-8 bg-black text-white font-semibold duration-300 
-                    '> Let's Shop</button>
+                    '>Home</button>
 
                     </div>
                 </div>
