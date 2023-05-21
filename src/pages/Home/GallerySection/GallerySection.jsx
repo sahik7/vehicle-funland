@@ -11,7 +11,6 @@ const GallerySection = () => {
                 const data = await response.json();
                 const imageUrls = data.map((item) => item.Image);
                 setImages(imageUrls);
-                console.log(imageUrls);
             } catch (error) {
                 console.error(error);
             }
@@ -30,18 +29,20 @@ const GallerySection = () => {
     }, [images]);
 
     return (
-        <div>
-            <div className="flex justify-between">
+        <div className="my-32">
+            <h1 className="text-4xl py-8 pl-4 mb-8 border-secondary border-l-8 border-b-8 font-extrabold w-1/3">Gallery</h1>
+            <div className="lg:flex lg:justify-between">
                 <div>
                     {images.length > 0 && (
-                        <img src={images[currentImageIndex]} alt="Gallery Image" />
+                        <img className="mx-auto" src={images[currentImageIndex]} />
                     )}
                 </div>
                 {/* Small image section */}
-                <div className="grid grid-cols-6 border w-8/12">
+                <div className="grid lg:grid-cols-6 grid-cols-2 lg:gap-4 gap-2 border mx-auto w-8/12">
                     {images.length > 0 &&
                         Array.from({ length: 12 }).map((_, index) => (
                             <img
+                                className='lg:border-4 border border-black lg:single-product-container single-product-container-sm'
                                 key={index}
                                 src={images[(currentImageIndex + index) % images.length]}
                             />

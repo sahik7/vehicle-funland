@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 const SingleToy = ({ vehicle }) => {
     const { _id, Image, Seller, ToyName, AvailableQuantity, Price, SubCategory } = vehicle;
-
-    console.log(vehicle)
     return (
         <div>
             <div className="border-black border-4 h-[21rem] single-product-container flex flex-col justify-between">

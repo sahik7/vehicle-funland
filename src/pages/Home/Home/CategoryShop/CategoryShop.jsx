@@ -63,7 +63,7 @@ const CategoryShop = () => {
       data-aos-anchor-placement="top-bottom">
       <ToastContainer />
       <h1 className="text-4xl py-8 pl-4 mb-8 border-secondary border-l-8 border-b-8 font-extrabold w-1/3">Categories</h1>
-      <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="flex rounded p-4">
+      <Tabs selectedIndex={activeTabIndex} onSelect={handleTabSelect} className="lg:flex rounded p-4">
         <div className="">
           <TabList className="space-y-2">
             <Tab className={`border border-black p-1 ${activeTabIndex === 0 ? 'active-tab' : ''}`}>Automobiles Vehicles</Tab>
