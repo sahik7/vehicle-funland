@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import toast from 'react-hot-toast';
 
 const UpdateData = () => {
     const location = useLocation();

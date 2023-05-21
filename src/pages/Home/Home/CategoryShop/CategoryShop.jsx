@@ -55,7 +55,7 @@ const CategoryShop = () => {
         setSubCategory('Truck');
         break;
       default:
-        subCategory = '';
+        setSubCategory("");
     }
   };
   return (
