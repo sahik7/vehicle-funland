@@ -16,6 +16,7 @@ const Register = () => {
         const imageLink = e.target.imageLink.value;
         EmailPasswordRegister(email, password)
             .then(userData => {
+                e.target.reset()
                 setSuccessMessage("Register Successfully !!!")
                 if (userData) {
                     setImageLinkAndName(name, imageLink)

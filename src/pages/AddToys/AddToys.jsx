@@ -34,7 +34,7 @@ const AddToys = () => {
             return;
         }
         try {
-            const res = await fetch('https://vehicle-funland-server.vercel.app/vehicles/vehicles', {
+            const res = await fetch('https://vehicle-funland-server.vercel.app/vehicles', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
